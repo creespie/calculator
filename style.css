@@ -1,0 +1,108 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    background-color: azure;
+    justify-content: center;
+}
+
+.numbers{
+    display: flex;
+    height: 100px;
+    width: 480px;
+    align-self: center;
+    background-color: white;
+    border-radius: 15px;    
+    border-style: solid;
+    border-color: black;
+    flex-direction: column;
+    
+}
+
+.oldNumber{
+    height: 30px;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: small;
+
+}
+
+.newNumber{
+    height: 70px;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: larger;
+   
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    width: 500px;
+    background-color: #F0F0F0;
+    padding: 15px;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: rgb(0, 0, 0);
+}
+
+.line{
+    display: flex;
+    flex: auto;
+    gap: 10px;
+    background-color: #F0F0F0;
+    justify-content: center;
+    align-items: center;
+    
+ 
+}
+
+.number, .operator, .dot, .operatorAlpha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    
+    
+}
+
+button{
+    border-radius: 15px 50px 30px;
+    border-style: none;
+}
+
+.number, .dot{
+    background-color: #003366;
+    color: white;
+}
+
+.operator{
+    background-color: #FF6F61;
+}
+
+.operatorAlpha{
+    background-color: #008080;
+}
+
+.number0{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px; 
+    background-color: #003366;
+    color: white;
+    padding-right: 10px;
+}
+
+.headTitle{
+    display: flex;
+    align-self: center;
+}
