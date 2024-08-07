@@ -23,93 +23,43 @@ if(array[0] == 0){
 };
 
 function add(){
-    if(operator === ""){return;
-    }else if (operator === "add") {
-        operator = "";
-        add();
-    } else if (operator === "subtract") {
-        operator = "";
-        subtract();
-    } else if (operator === "divide") {
-        operator = "";
-        divide();
-    } else if (operator === "multiply") {
-        operator = "";
-        multiply();
-    };
-
     array[0] = Number(array[0]);
+    array[1] = Number(array[1]);
     array[2] = array[0];
-    array[0] = array[2] + array[1];
-    delete array[1];
-    delete array[2];
-    let operator = "";
+    array[0] = (array[1] + array[2]).toString();
+    array.pop();
+    array.pop();
+    operator = "";
 };
 
 function subtract(){
-    if (operator === "add") {
-        operator = "";
-        add();
-    } else if (operator === "subtract") {
-        operator = "";
-        subtract();
-    } else if (operator === "divide") {
-        operator = "";
-        divide();
-    } else if (operator === "multiply") {
-        operator = "";
-        multiply();
-    };
+    
     array[0] = Number(array[0]);
     array[2] = array[0];
-    array[0] = array[1] - array[2];
-    delete array[1];
-    delete array[2];
-    let operator = "";
+    array[0] = (array[1] - array[2]).toString();
+    array.pop();
+    array.pop();
+    operator = "";
 };
 
 function multiply(){
-    if (operator === "add") {
-        operator = "";
-        add();
-    } else if (operator === "subtract") {
-        operator = "";
-        subtract();
-    } else if (operator === "divide") {
-        operator = "";
-        divide();
-    } else if (operator === "multiply") {
-        operator = "";
-        multiply();
-    };
+    
     array[0] = Number(array[0]);
     array[2] = array[0];
-    array[0] = array[2] * array[1];
-    delete array[1];
-    delete array[2];
-    let operator = "";
+    array[0] = (array[2] * array[1]).toString();
+    array.pop();
+    array.pop();
+    operator = "";
 };
 
 function divide(){
-    if (operator === "add") {
-        operator = "";
-        add();
-    } else if (operator === "subtract") {
-        operator = "";
-        subtract();
-    } else if (operator === "divide") {
-        operator = "";
-        divide();
-    } else if (operator === "multiply") {
-        operator = "";
-        multiply();
-    };
+    
     array[0] = Number(array[0]);
     array[2] = array[0];
-    array[0] = array[1] / array[2];
-    delete array[1];
-    delete array[2];
-    let operator = "";
+    array[0] = (array[1] / array[2]).toString();
+    array.pop();
+    array.pop();
+    operator = "";
 };
 
 function sign(){
@@ -139,35 +89,111 @@ function deleteLast(){
 };
 
 function eraser(){
-    array[0] = 0;
+    array[0] = "0";
+    array[1] = "";
 };
 
 function addDot(){
     array[0] = array[0].toString();
-    if(array[0].includes(".")){return};
-    array[0] += ".";
+    if(array[0].contains(".")){
+        return
+    }else{
+    array[0] += "32"};
 };
 
 function equal(){
-    if (operator === "add") {
-        operator = "";
+    switch(operator){
+    case "add":
         add();
-    } else if (operator === "subtract") {
-        operator = "";
+        break;
+    case "subtract": 
         subtract();
-    } else if (operator === "divide") {
-        operator = "";
+        break;
+   case "divide":
         divide();
-    } else if (operator === "multiply") {
-        operator = "";
+        break;
+    case "multiply":
         multiply();
-    }
-    
+        break;
+    default:
+        return;
+    }  
+   
 };
 
-function operators(id){
-    let operator = id;
+
+
+//DOM manipulation
+const zero = document.getElementById("0");
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
+const operatorsAlpha = document.querySelectorAll(".operatorAlpha");
+
+const oldNumber = document.querySelector(".oldNumber");
+const newNumber = document.querySelector(".newNumber");
+//decide the operator
+function determiner(id){
+    if(id === "add"){
+        if(operator != ""){equal()};
+        operator = "add";
+        array[1] = array[0];
+        array[0] = 0;
+    }else if(id === "subtract"){
+        if(operator != ""){equal()};
+        operator = "subtract";
+        array[1] = array[0];
+        array[0] = 0;
+    }else if(id === "multiply"){if(operator != ""){equal()};
+    operator = "multiply";
     array[1] = array[0];
     array[0] = 0;
-};
+    }else if(id === "divide"){
+        if(operator != ""){equal()};
+        operator = "divide";
+        array[1] = array[0];
+        array[0] = 0;
+    }else if(id === "equal"){
+        equal();
+        array[1] = array[0];
+        array[0] = 0;
+    }else if(id === "cancel"){
+        deleteLast();
+    }else if(id === "eraser"){
+        eraser();
+    }else if(id === "sign"){
+        sign();
+    }else if(id === "addDot"){
+        addDot();
+    }
+    newNumber.textContent = array[0];
+    oldNumber.textContent = array[1];
+}
+ 
+zero.addEventListener("click", () => {
+    addNumber(0);
+    
+    newNumber.textContent = array[0];
+});
+
+numbers.forEach((number) => {
+    number.addEventListener("click", () => {
+      addNumber(number.id);
+      
+      newNumber.textContent = array[0];
+    });
+});
+
+operators.forEach((operator) => {
+    operator.addEventListener("click", () => {
+      determiner(operator.id);
+    });
+});
+
+operatorsAlpha.forEach((operator) => {
+    operator.addEventListener("click", () => {
+      determiner(operator.id);
+    });
+});
+
+
 
