@@ -12,61 +12,162 @@ let operator = "";
 
 
 function addNumber(id){
+    array[0] = Number(array[0]);
 if(array[0] == 0){
     array[0] = id;
 }else{
     array[0] = array[0].toString();
     array[0] += "" + id + "";
-    array[0] = Number(array[0]);
+    
 }
 };
 
 function add(){
+    if(operator === ""){return;
+    }else if (operator === "add") {
+        operator = "";
+        add();
+    } else if (operator === "subtract") {
+        operator = "";
+        subtract();
+    } else if (operator === "divide") {
+        operator = "";
+        divide();
+    } else if (operator === "multiply") {
+        operator = "";
+        multiply();
+    };
+
+    array[0] = Number(array[0]);
     array[2] = array[0];
     array[0] = array[2] + array[1];
-    array[1] = array[2];
+    delete array[1];
     delete array[2];
     let operator = "";
 };
 
 function subtract(){
+    if (operator === "add") {
+        operator = "";
+        add();
+    } else if (operator === "subtract") {
+        operator = "";
+        subtract();
+    } else if (operator === "divide") {
+        operator = "";
+        divide();
+    } else if (operator === "multiply") {
+        operator = "";
+        multiply();
+    };
+    array[0] = Number(array[0]);
     array[2] = array[0];
-    array[0] = array[2] - array[1];
-    array[1] = array[2];
+    array[0] = array[1] - array[2];
+    delete array[1];
     delete array[2];
     let operator = "";
 };
 
 function multiply(){
+    if (operator === "add") {
+        operator = "";
+        add();
+    } else if (operator === "subtract") {
+        operator = "";
+        subtract();
+    } else if (operator === "divide") {
+        operator = "";
+        divide();
+    } else if (operator === "multiply") {
+        operator = "";
+        multiply();
+    };
+    array[0] = Number(array[0]);
     array[2] = array[0];
     array[0] = array[2] * array[1];
-    array[1] = array[2];
+    delete array[1];
     delete array[2];
     let operator = "";
 };
 
 function divide(){
+    if (operator === "add") {
+        operator = "";
+        add();
+    } else if (operator === "subtract") {
+        operator = "";
+        subtract();
+    } else if (operator === "divide") {
+        operator = "";
+        divide();
+    } else if (operator === "multiply") {
+        operator = "";
+        multiply();
+    };
+    array[0] = Number(array[0]);
     array[2] = array[0];
-    array[0] = array[2] / array[1];
-    array[1] = array[2];
+    array[0] = array[1] / array[2];
+    delete array[1];
     delete array[2];
     let operator = "";
 };
 
 function sign(){
+    array[0] = Number(array[0]);
     let tempNumber = array[0];
     if(tempNumber == 0){return};
     let tempArray = array[0].toString().split("");
     if((tempArray.includes("-"))){
-        array[0] = Number(array[0].toString().slice(1));
+        array[0] = array[0].toString().slice(1);
     }else{
         array[0] = array[0].toString();
         array[0] = "-" + array[0];
-        array[0] = Number(array[0]);
+        
     }; 
+};
+
+function deleteLast(){
+    array[0] = Number(array[0]);
+    if(array[0] === 0){return};
+    if(array[0].length == 1){
+        array[0] = 0;
+    }else{
+        array[0] = array[0].toString();
+        array[0] = array[0].substring(0, array[0].length - 1);
+        
+    };
+};
+
+function eraser(){
+    array[0] = 0;
+};
+
+function addDot(){
+    array[0] = array[0].toString();
+    if(array[0].includes(".")){return};
+    array[0] += ".";
+};
+
+function equal(){
+    if (operator === "add") {
+        operator = "";
+        add();
+    } else if (operator === "subtract") {
+        operator = "";
+        subtract();
+    } else if (operator === "divide") {
+        operator = "";
+        divide();
+    } else if (operator === "multiply") {
+        operator = "";
+        multiply();
+    }
+    
 };
 
 function operators(id){
     let operator = id;
+    array[1] = array[0];
+    array[0] = 0;
 };
 
