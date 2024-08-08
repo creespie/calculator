@@ -13,14 +13,11 @@ let operator = "";
 
 
 function addNumber(id){
-    //array[0] = Number(array[0]);
+    
 if(array[0] === "0"){
     array[0] = id;
-    array[0] = array[0].toString();
 }else{
-    array[0] = array[0].toString();
-    array[0] += "" + id + "";
-    
+    array[0] += "" + id + ""; 
 }
 };
 
@@ -74,14 +71,11 @@ function sign(){
 };
 
 function deleteLast(){
-    array[0] = Number(array[0]);
-    if(array[0] === 0){return};
+    if(array[0] === "0"){return};
     if(array[0].length == 1){
-        array[0] = 0;
+        array[0] = "0";
     }else{
-        array[0] = array[0].toString();
         array[0] = array[0].substring(0, array[0].length - 1);
-        
     };
 };
 
@@ -91,7 +85,6 @@ function eraser(){
 };
 
 function addDot(){
-    array[0] = array[0].toString();
     if(array[0].includes(".")){
         return
     }else{
