@@ -8,13 +8,15 @@
 
 
 let array =[0];
+array[0] = "0";
 let operator = "";
 
 
 function addNumber(id){
-    array[0] = Number(array[0]);
-if(array[0] == 0){
+    //array[0] = Number(array[0]);
+if(array[0] === "0"){
     array[0] = id;
+    array[0] = array[0].toString();
 }else{
     array[0] = array[0].toString();
     array[0] += "" + id + "";
@@ -95,10 +97,10 @@ function eraser(){
 
 function addDot(){
     array[0] = array[0].toString();
-    if(array[0].contains(".")){
+    if(array[0].includes(".")){
         return
     }else{
-    array[0] += "32"};
+    array[0] += "."};
 };
 
 function equal(){
@@ -128,6 +130,7 @@ const zero = document.getElementById("0");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const operatorsAlpha = document.querySelectorAll(".operatorAlpha");
+const dot = document.querySelector(".dot");
 
 const oldNumber = document.querySelector(".oldNumber");
 const newNumber = document.querySelector(".newNumber");
@@ -142,20 +145,20 @@ function determiner(id){
         if(operator != ""){equal()};
         operator = "subtract";
         array[1] = array[0];
-        array[0] = 0;
+        array[0] = "0";
     }else if(id === "multiply"){if(operator != ""){equal()};
     operator = "multiply";
     array[1] = array[0];
-    array[0] = 0;
+    array[0] = "0";
     }else if(id === "divide"){
         if(operator != ""){equal()};
         operator = "divide";
         array[1] = array[0];
-        array[0] = 0;
+        array[0] = "0";
     }else if(id === "equal"){
         equal();
         array[1] = array[0];
-        array[0] = 0;
+        array[0] = "0";
     }else if(id === "cancel"){
         deleteLast();
     }else if(id === "eraser"){
@@ -196,4 +199,7 @@ operatorsAlpha.forEach((operator) => {
 });
 
 
+dot.addEventListener("click", () => {
+    determiner("addDot")
+});
 
