@@ -243,3 +243,16 @@ dot.addEventListener("click", () => {
     determiner("addDot")
 });
 
+const numbersKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
+
+function getKeyboardOperator() {
+    document.addEventListener("keydown", e => {
+        let keyName = e.key;
+        if (numbersKeys.includes(keyName)) {
+            addNumber(keyName)
+            newNumber.textContent = array[0];
+        }
+    })
+};
+
+getKeyboardOperator();
