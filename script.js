@@ -51,8 +51,15 @@ function multiply(){
     operator = "";
 };
 
+function stopThere(){
+    alert("Stop right there criminal scum! That's illegal!");
+};
+
 function divide(){
-    
+    // if(array[0] == "0"){
+    //     stopThere();
+    //     operator = "";
+    // }else{
     array[0] = Number(array[0]);
     array[2] = array[0];
     array[0] = (array[1] / array[2]).toString();
@@ -100,8 +107,13 @@ function equal(){
         subtract();
         break;
    case "divide":
+        if(array[0] == "0"){
+            stopThere();
+            operator = "";
+            break;
+        }else{
         divide();
-        break;
+        break;}
     case "multiply":
         multiply();
         break;
