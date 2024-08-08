@@ -92,7 +92,8 @@ function eraser(){
 };
 
 function addDot(){
-    if(array[0].includes(".")){
+    let tempArray = array[0].toString();
+    if(tempArray.includes(".")){
         return
     }else{
     array[0] += "."};
