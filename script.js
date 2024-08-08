@@ -137,24 +137,56 @@ const newNumber = document.querySelector(".newNumber");
 //decide the operator
 function determiner(id){
     if(id === "add"){
-        if(operator != ""){equal()};
-        operator = "add";
-        array[1] = array[0];
-        array[0] = 0;
+        if(operator != ""){
+            equal();
+            array[1] = array[0];
+            array[0] = "0";
+        }else{
+            if(array[1] == "" || array[1] == null){
+                array[1] = array[0];
+                array[0] = "0";
+            };
+            operator = "add";
+        };
+        
+        
     }else if(id === "subtract"){
-        if(operator != ""){equal()};
-        operator = "subtract";
-        array[1] = array[0];
-        array[0] = "0";
-    }else if(id === "multiply"){if(operator != ""){equal()};
-    operator = "multiply";
-    array[1] = array[0];
-    array[0] = "0";
+        if(operator != ""){
+            equal();
+            array[1] = array[0];
+            array[0] = "0";
+        }else{
+            if(array[1] == "" || array[1] == null){
+                array[1] = array[0];
+                array[0] = "0";
+            };  
+            operator = "subtract";
+        };
+        
+    }else if(id === "multiply"){
+        if(operator != ""){
+            equal();
+            array[1] = array[0];
+            array[0] = "0";
+        }else{
+            if(array[1] == "" || array[1] == null){
+                array[1] = array[0];
+                array[0] = "0";
+            };  
+            operator = "multiply";
+        };
     }else if(id === "divide"){
-        if(operator != ""){equal()};
-        operator = "divide";
-        array[1] = array[0];
-        array[0] = "0";
+        if(operator != ""){
+            equal();
+            array[1] = array[0];
+            array[0] = "0";
+        }else{
+            if(array[1] == "" || array[1] == null){
+                array[1] = array[0];
+                array[0] = "0";
+            };  
+            operator = "divide";
+        };
     }else if(id === "equal"){
         equal();
         array[1] = array[0];
