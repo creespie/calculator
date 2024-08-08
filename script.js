@@ -141,8 +141,13 @@ function determiner(id){
             equal();
             array[1] = array[0];
             array[0] = "0";
+            operator = "add";
         }else{
             if(array[1] == "" || array[1] == null){
+                array[1] = array[0];
+                array[0] = "0";
+            };
+            if(array[0] != "0"){
                 array[1] = array[0];
                 array[0] = "0";
             };
@@ -155,11 +160,16 @@ function determiner(id){
             equal();
             array[1] = array[0];
             array[0] = "0";
+            operator = "subtract";
         }else{
             if(array[1] == "" || array[1] == null){
                 array[1] = array[0];
                 array[0] = "0";
             };  
+            if(array[0] != "0"){
+                array[1] = array[0];
+                array[0] = "0";
+            };
             operator = "subtract";
         };
         
@@ -168,11 +178,16 @@ function determiner(id){
             equal();
             array[1] = array[0];
             array[0] = "0";
+            operator = "multiply";
         }else{
             if(array[1] == "" || array[1] == null){
                 array[1] = array[0];
                 array[0] = "0";
             };  
+            if(array[0] != "0"){
+                array[1] = array[0];
+                array[0] = "0";
+            };
             operator = "multiply";
         };
     }else if(id === "divide"){
@@ -180,11 +195,16 @@ function determiner(id){
             equal();
             array[1] = array[0];
             array[0] = "0";
+            operator = "divide";
         }else{
             if(array[1] == "" || array[1] == null){
                 array[1] = array[0];
                 array[0] = "0";
             };  
+            if(array[0] != "0"){
+                array[1] = array[0];
+                array[0] = "0";
+            };
             operator = "divide";
         };
     }else if(id === "equal"){
