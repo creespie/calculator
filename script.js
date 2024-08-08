@@ -65,14 +65,9 @@ function divide(){
 };
 
 function sign(){
-    array[0] = Number(array[0]);
-    let tempNumber = array[0];
-    if(tempNumber == 0){return};
-    let tempArray = array[0].toString().split("");
-    if((tempArray.includes("-"))){
-        array[0] = array[0].toString().slice(1);
+    if((array[0].split("").includes("-"))){
+        array[0] = array[0].slice(1);
     }else{
-        array[0] = array[0].toString();
         array[0] = "-" + array[0];
         
     }; 
